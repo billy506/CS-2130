@@ -30,6 +30,8 @@ public class SimBase {
             break;
             case 3:R[a]=M[R[b]];
             break;
+            case 4:M[R[b]]=R[a];
+            break;
             case 5:
                 if(b==0)
                     R[a]=(byte)(~R[a]);
