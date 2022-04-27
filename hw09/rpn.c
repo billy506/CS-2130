@@ -13,18 +13,18 @@ typedef struct {
 }sqStack;
 
 void InitStack (sqStack *s) {
-	s->base =(Elemtype *)malloc (STACK_INIT_SIZE * sizeof(Elemtype));
-	s->top =s->base ;
+	s->base = (Elemtype *)malloc(STACK_INIT_SIZE * sizeof(Elemtype));
+	s->top = s->base;
 	s->stackSize =STACK_INIT_SIZE;
 }
 
 void Push (sqStack *s, Elemtype e) {
-	if(s->top -s->base  >=s->stackSize )  {
-		s->base = (Elemtype *)realloc (s->base ,(s->stackSize +STACKINCREMENT* sizeof(Elemtype)));
+	if(s->top-s->base >= s->stackSize)  {
+		s->base = (Elemtype *)realloc(s->base ,(s->stackSize +STACKINCREMENT* sizeof(Elemtype)));
 	}
 	
-	*(s->top )=e;
-	s->top ++;
+	*(s->top)=e;
+	 s->top++;
 }
 
 void Pop(sqStack *s,Elemtype *e) {
@@ -39,11 +39,12 @@ int StackLen (sqStack s) {
 int main() {
 	sqStack s;
 	char c;
+	char stack[s.stackSize];
 	double a,b;
 	char str[STACKINCREMENT];
 	int i=0;
-	
- 	InitStack (&s);
+ 	InitStack(&s);
+ 	
 	scanf("%c",&c);
 	while(' '==c||isdigit(c)||'.'==c||'+'==c||'-'==c||'*'==c||'/'==c) {
 		while(isdigit(c) || c=='.') {
@@ -58,28 +59,27 @@ int main() {
 				break;
 			}
 		} 
+		
 		switch (c) {
 			case '+':
    				    Pop(&s,&b);
 					Pop(&s,&a);
 					Push(&s,a+b);
 					break;
-			case '-':
+			case'-':
 				    Pop(&s,&b);
 				    Pop(&s,&a);
 				    Push(&s,a-b);
 				    break;
-            		case '*':
+            		case'*':
 					Pop(&s,&b);
 					Pop(&s,&a);
 					Push(&s,a*b);
 					break;
-           		case '/':
+           		case'/':
 					Pop(&s,&b);
 					Pop(&s,&a);
-					if(b!=0) {
-						Push(&s,a/b);
-					}
+					if(b!=0) {Push(&s,a/b);}
 					else {
 						printf("You can't divide by 0!\n");
 						return -1;
@@ -89,7 +89,12 @@ int main() {
 		scanf("%c",&c);
 	}
 
-	Pop(&s,&a);
-	
-	printf("%f\n",a);
+	//Pop(&s,&a);
+	printf("[");
+	for(int i=0;i<StackLen(s);i++)
+	{
+	    printf("%f ",s.base[i]);
+	}
+	   printf("]");
+	//printf("%f\n",a);
 }
