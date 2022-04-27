@@ -45,7 +45,7 @@ int main() {
 	
  	InitStack (&s);
 	scanf("%c",&c);
-	while( ) {
+	while(' '==c||isdigit(c)||'.'==c||'+'==c||'-'==c||'*'==c||'/'==c) {
 		while(isdigit(c) || c=='.') {
 			str[i++]=c;
 			str[i]='\0';
