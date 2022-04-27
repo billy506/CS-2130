@@ -25,18 +25,15 @@ void Push (sqStack *s, Elemtype e) {
 	
 	*(s->top )=e;
 	s->top ++;
-	
 }
 
 void Pop(sqStack *s,Elemtype *e) {
 	if(s->top ==s->base ) return ;
 	*e= *--(s->top );
-	
 }
 
 int StackLen (sqStack s) {
 	return (s.top - s.base );
-	
 }
 
 int main() {
@@ -67,17 +64,17 @@ int main() {
 					Pop(&s,&a);
 					Push(&s,a+b);
 					break;
-			case'-':
+			case '-':
 				    Pop(&s,&b);
 				    Pop(&s,&a);
 				    Push(&s,a-b);
 				    break;
-            case'*':
+            		case '*':
 					Pop(&s,&b);
 					Pop(&s,&a);
 					Push(&s,a*b);
 					break;
-           	case'/':
+           		case '/':
 					Pop(&s,&b);
 					Pop(&s,&a);
 					if(b!=0) {
