@@ -90,7 +90,8 @@ int main() {
 	}
 
 	printf("[");
-        for(int i=0;i<=StackLen(s);i++){
-        printf("%f, ", s.base[i]);}
-        printf("]\n");
+	for(int i=0;i<StackLen(s)-1;i++){
+		printf("%f, ", s.base[i]);}
+	printf("%f", s.base[StackLen(s)-1]);
+	printf("]\n");
 }
