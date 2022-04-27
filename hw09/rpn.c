@@ -89,12 +89,8 @@ int main() {
 		scanf("%c",&c);
 	}
 
-	//Pop(&s,&a);
 	printf("[");
-	for(int i=0;i<StackLen(s);i++)
-	{
-	    printf("%f ",s.base[i]);
-	}
-	   printf("]");
-	//printf("%f\n",a);
+        for(int i=0;i<=StackLen(s);i++){
+        printf("%f, ", s.base[i]);}
+        printf("]\n");
 }
