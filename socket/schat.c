@@ -20,11 +20,11 @@ int main(int argc , char *argv[]){
   int sockfd = socket(AF_INET, SOCK_STREAM, 0); //listener
   struct sockaddr_in address;
   //Create Socket  (Remember to check the return value to see if an error occured) 
-  //read ip address
+  //Read IP Address
   printf ("Enter IP Address: ");
   scanf("%14s", SERVER_IP);
 
-  //read ip address
+  //Read Port
   printf ("Enter Port: ");
   scanf("%9s", PORT_BUFFER);;
   PORT = atoi(PORT_BUFFER);
